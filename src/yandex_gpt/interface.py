@@ -16,6 +16,19 @@ class YandexGPT(RequestHTTP):
             temperature: float = 0.3,
             max_tokens: int = 2000
     ):
+        """
+        Main class for connecting to YandexGPT. For working you need folder-id and OAuth token from yandex api
+        https://yandex.cloud/ru/docs/foundation-models/api-ref/authentication
+
+        :param oauth_token: OAuth Token
+        :param folder_id: Folder id
+        :param use_cache_for_iam: Is need to use cache for getting IAM token
+        :param disable_logging: Is need to disable
+        :param gpt_model: Version of GPT model
+        :param custom_model_id: Custom model id if you're trying to use model from DataSphere
+        :param temperature: Temperature of GPT model
+        :param max_tokens: Limit for tokens
+        """
         self._iam_getter = YandexApiGetterIAMCache if use_cache_for_iam else YandexApiGetterIAM
         self._iam_getter: IAMGetter = self._iam_getter(oauth_token)
         self._folder_id = folder_id
@@ -48,6 +61,11 @@ class YandexGPT(RequestHTTP):
         }
 
     def completion(self, messages: Messages) -> YandexGPTResponse:
+        """
+        Method for getting answer from YandexGPT API
+        :param messages: messages with context for GPT
+        :return: Response from YandexGPT API
+        """
         response = self._make_request(
             method='POST',
             endpoint='/foundationModels/v1/completion',

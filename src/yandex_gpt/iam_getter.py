@@ -14,6 +14,9 @@ class IAMGetter(ABC):
 
 
 class YandexApiGetterIAM(IAMGetter, RequestHTTP):
+    """
+    Swap OAuth token on IAM token
+    """
     def __init__(self, oauth_token: str):
         self._oauth_token = oauth_token
 
@@ -38,6 +41,9 @@ class YandexApiGetterIAM(IAMGetter, RequestHTTP):
 
 
 class YandexApiGetterIAMCache(YandexApiGetterIAM):
+    """
+    Swap OAuth token on IAM token with using cache
+    """
     def __init__(self, oauth_token: str, hours_to_keep_token: int = 1):
         super().__init__(oauth_token=oauth_token)
         self._last_time_get_token_dttm = datetime.datetime.now()

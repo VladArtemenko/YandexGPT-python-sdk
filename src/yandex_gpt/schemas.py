@@ -18,17 +18,14 @@ class Message:
         return self.__dict__
 
 
-@dataclass
 class UserMessage(Message):
     role: str = 'user'
 
 
-@dataclass
 class SystemMessage(Message):
     role: str = 'system'
 
 
-@dataclass
 class AssistantMessage(Message):
     role: str = 'assistant'
 
