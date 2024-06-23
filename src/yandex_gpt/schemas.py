@@ -15,7 +15,10 @@ class Message:
     text: str
 
     def as_json(self):
-        return self.__dict__
+        return {
+            'text': self.text,
+            'role': self.role
+        }
 
 
 class UserMessage(Message):
