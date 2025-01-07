@@ -46,7 +46,7 @@ class YandexGPT(RequestHTTP):
         return {
             'Content-Type': 'application/json',
             'Authorization': f'Bearer {self._iam_getter.get_iam_token()}',
-            'x-data-logging-enabled': 'true' if self._disable_logging else 'false'
+            'x-data-logging-enabled': 'true' if not self._disable_logging else 'false'
         }
 
     def _make_data(self, messages: Messages) -> dict:

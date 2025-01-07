@@ -7,6 +7,9 @@ class YandexGPTModels:
     YANDEX_GPT_PRO = 'gpt://{folder_id}/yandexgpt/latest'
     YANDEX_GPT_LITE = 'gpt://{folder_id}/yandexgpt-lite/latest'
     YANDEX_GPT_SUMMARIZE = 'gpt://{folder_id}/summarization/latest'
+    YANDEX_GPT_PRO_32K = 'gpt://{folder_id}/yandexgpt-32k/latest'
+    LLAMA_LITE = 'gpt://{folder_id}/llama-lite/latest'
+    LLAMA = 'gpt://{folder_id}/llama/latest'
     YANDEX_GPT_CUSTOM_MODEL = 'ds://{custom_model_id}'
 
 
